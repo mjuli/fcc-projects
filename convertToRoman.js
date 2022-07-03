@@ -6,16 +6,12 @@ const romanLetters = {
 }
 
 function convert(num, order){
-  let covertedNumber
-
-  if(num < 4)
-    covertedNumber = romanLetters[order][0].repeat(num)
-  else if (num == 4)
-    covertedNumber = romanLetters[order][0] + romanLetters[order][1]
-  else if (num < 9)
-    covertedNumber = romanLetters[order][1] + romanLetters[order][0].repeat(num - 5)
-  else if (num == 9)
-    covertedNumber = romanLetters[order][0] + romanLetters[order][2]
+  let covertedNumber = 
+    num == 0 && ' ' ||
+    num < 4 && romanLetters[order][0].repeat(num) ||
+    num == 4 && romanLetters[order][0] + romanLetters[order][1] ||
+    num < 9 && romanLetters[order][1] + romanLetters[order][0].repeat(num - 5) ||
+    num == 9 && romanLetters[order][0] + romanLetters[order][2]
 
   return covertedNumber
 }
