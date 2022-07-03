@@ -28,6 +28,7 @@ function convertToRoman(num) {
     .map((num, index) => convert(num, index))
 
   return romanNumber
+    .filter(letter => letter != ' ')
     .reverse()
     .join('')
 }
